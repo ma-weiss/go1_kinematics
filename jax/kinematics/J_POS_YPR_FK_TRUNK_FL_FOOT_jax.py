@@ -2,7 +2,7 @@ import jax.numpy as jnp
 import numpy as np
 import jax
 @jax.jit
-def J_POS_YPR_FK_TRUNK_FL_FOOT(x):
+def J_pos_ypr_fk_trunk_FL_foot(x):
 	output = jnp.zeros((6, 18))
 	var1=-0.426
 	var2=2
