@@ -2,10 +2,10 @@ import jax.numpy as jnp
 import numpy as np
 import jax
 @jax.jit
-def J_RF(x):
+def J_POS_YPR_FK_ORIGIN_RR_FOOT(x):
 	output = jnp.zeros((6, 18))
 	var1=1
-	var2=0.0935
+	var2=-0.0935
 	var3=2
 	var4=(x[3]/var3)
 	var5=jnp.cos(var4)
@@ -41,10 +41,10 @@ def J_RF(x):
 	var35=-0.1881
 	var36=(var27+var27)
 	var37=(var31+var31)
-	var38=0.16
-	var39=(x[15]/var3)
+	var38=-0.16
+	var39=(x[12]/var3)
 	var40=jnp.sin(var39)
-	var41=(x[15]/var3)
+	var41=(x[12]/var3)
 	var42=jnp.cos(var41)
 	var43=((var33*var40)+(var18*var42))
 	var44=((var42*var24)+(var40*var34))
@@ -55,9 +55,9 @@ def J_RF(x):
 	var49=((var33*var42)-(var18*var40))
 	var50=((var42*var34)-(var40*var24))
 	var51=-0.426
-	var52=(x[16]/var3)
+	var52=(x[13]/var3)
 	var53=jnp.sin(var52)
-	var54=(x[16]/var3)
+	var54=(x[13]/var3)
 	var55=jnp.cos(var54)
 	var56=((var49*var53)+(var45*var55))
 	var57=((var55*var48)-(var53*var44))
@@ -67,9 +67,9 @@ def J_RF(x):
 	var61=((var53*var46)+(var55*var50))
 	var62=((var43*var53)+(var47*var55))
 	var63=((var55*var46)-(var53*var50))
-	var64=(x[17]/var3)
+	var64=(x[14]/var3)
 	var65=jnp.sin(var64)
-	var66=(x[17]/var3)
+	var66=(x[14]/var3)
 	var67=jnp.cos(var66)
 	var68=((var58*var65)+(var56*var67))
 	var69=((var67*var57)-(var65*var59))
@@ -80,10 +80,10 @@ def J_RF(x):
 	var74=((var60*var65)+(var62*var67))
 	var75=((var67*var63)-(var65*var61))
 	var76=-0.3762
-	var77=0.04675
+	var77=-0.04675
 	var78=(var18+var18)
 	var79=(var31+var31)
-	var80=0.08
+	var80=-0.08
 	var81=(var43+var43)
 	var82=(var47+var47)
 	var83=-0.213
@@ -197,22 +197,22 @@ def J_RF(x):
 	output = output.at[3,5].set( ((var91*(var3*(((var74*var139)+(var70*var141))+((var68*var142)+(var72*var140)))))+(var92*(var3*((var93*var140)+(var94*var141))))))
 	output = output.at[4,5].set( ((var3*(((var68*var139)+(var70*var140))-((var72*var141)+(var74*var142))))/var95))
 	output = output.at[5,5].set( ((var99*(var3*(((var72*var139)+(var70*var142))+((var74*var140)+(var68*var141)))))+(var100*(var3*((var101*var142)+(var102*var140))))))
-	output = output.at[0,15].set( (((var38*(((var43*var145)+(var45*var146))+((var47*var147)+(var49*var148))))+(var51*(((var58*var149)-(var56*var150))+((var60*var151)+(var62*var152)))))+(var51*(((var70*var153)-(var68*var154))+((var72*var155)+(var74*var156))))))
-	output = output.at[1,15].set( (((var80*((var3*(var82*var148))-(var3*(var81*var146))))+(var51*(((var56*var151)+(var62*var149))-((var58*var152)-(var60*var150)))))+(var51*(((var68*var155)+(var74*var153))-((var70*var156)-(var72*var154))))))
-	output = output.at[2,15].set( (((var38*(((var49*var146)-(var43*var147))+((var47*var145)-(var45*var148))))-(var83*((var3*(var84*var152))+(var3*(var85*var149)))))-(var83*((var3*(var86*var156))+(var3*(var87*var153))))))
-	output = output.at[3,15].set( ((var91*(var3*(((var70*var155)-(var74*var154))+((var68*var156)+(var72*var153)))))+(var92*(var3*((var93*var153)+(var94*var155))))))
-	output = output.at[4,15].set( ((var3*(((var70*var153)-(var68*var154))-((var72*var155)+(var74*var156))))/var95))
-	output = output.at[5,15].set( ((var99*(var3*(((var70*var156)-(var72*var154))+((var74*var153)+(var68*var155)))))+(var100*(var3*((var101*var156)+(var102*var153))))))
-	output = output.at[0,16].set( ((var51*(((var58*var159)-(var56*var160))+((var60*var161)-(var62*var162))))+(var51*(((var70*var163)-(var68*var164))+((var72*var165)-(var74*var166))))))
-	output = output.at[1,16].set( ((var51*(((var56*var161)+(var62*var159))+((var60*var160)+(var58*var162))))+(var51*(((var68*var165)+(var74*var163))+((var72*var164)+(var70*var166))))))
-	output = output.at[2,16].set( ((var83*((var3*(var84*var162))-(var3*(var85*var159))))+(var83*((var3*(var86*var166))-(var3*(var87*var163))))))
-	output = output.at[3,16].set( ((var91*(var3*(((var70*var165)-(var74*var164))+((var72*var163)-(var68*var166)))))+(var92*(var3*((var93*var163)+(var94*var165))))))
-	output = output.at[4,16].set( ((var3*(((var70*var163)-(var68*var164))-((var72*var165)-(var74*var166))))/var95))
-	output = output.at[5,16].set( ((var99*(var3*(((var74*var163)+(var68*var165))-((var72*var164)+(var70*var166)))))+(var100*(var3*((var102*var163)-(var101*var166))))))
-	output = output.at[0,17].set( (var51*(((var70*var169)-(var68*var170))+((var72*var171)-(var74*var172)))))
-	output = output.at[1,17].set( (var51*(((var68*var171)+(var74*var169))+((var72*var170)+(var70*var172)))))
-	output = output.at[2,17].set( (var83*((var3*(var86*var172))-(var3*(var87*var169)))))
-	output = output.at[3,17].set( ((var91*(var3*(((var70*var171)-(var74*var170))+((var72*var169)-(var68*var172)))))+(var92*(var3*((var93*var169)+(var94*var171))))))
-	output = output.at[4,17].set( ((var3*(((var70*var169)-(var68*var170))-((var72*var171)-(var74*var172))))/var95))
-	output = output.at[5,17].set( ((var99*(var3*(((var74*var169)+(var68*var171))-((var72*var170)+(var70*var172)))))+(var100*(var3*((var102*var169)-(var101*var172))))))
+	output = output.at[0,12].set( (((var38*(((var43*var145)+(var45*var146))+((var47*var147)+(var49*var148))))+(var51*(((var58*var149)-(var56*var150))+((var60*var151)+(var62*var152)))))+(var51*(((var70*var153)-(var68*var154))+((var72*var155)+(var74*var156))))))
+	output = output.at[1,12].set( (((var80*((var3*(var82*var148))-(var3*(var81*var146))))+(var51*(((var56*var151)+(var62*var149))-((var58*var152)-(var60*var150)))))+(var51*(((var68*var155)+(var74*var153))-((var70*var156)-(var72*var154))))))
+	output = output.at[2,12].set( (((var38*(((var49*var146)-(var43*var147))+((var47*var145)-(var45*var148))))-(var83*((var3*(var84*var152))+(var3*(var85*var149)))))-(var83*((var3*(var86*var156))+(var3*(var87*var153))))))
+	output = output.at[3,12].set( ((var91*(var3*(((var70*var155)-(var74*var154))+((var68*var156)+(var72*var153)))))+(var92*(var3*((var93*var153)+(var94*var155))))))
+	output = output.at[4,12].set( ((var3*(((var70*var153)-(var68*var154))-((var72*var155)+(var74*var156))))/var95))
+	output = output.at[5,12].set( ((var99*(var3*(((var70*var156)-(var72*var154))+((var74*var153)+(var68*var155)))))+(var100*(var3*((var101*var156)+(var102*var153))))))
+	output = output.at[0,13].set( ((var51*(((var58*var159)-(var56*var160))+((var60*var161)-(var62*var162))))+(var51*(((var70*var163)-(var68*var164))+((var72*var165)-(var74*var166))))))
+	output = output.at[1,13].set( ((var51*(((var56*var161)+(var62*var159))+((var60*var160)+(var58*var162))))+(var51*(((var68*var165)+(var74*var163))+((var72*var164)+(var70*var166))))))
+	output = output.at[2,13].set( ((var83*((var3*(var84*var162))-(var3*(var85*var159))))+(var83*((var3*(var86*var166))-(var3*(var87*var163))))))
+	output = output.at[3,13].set( ((var91*(var3*(((var70*var165)-(var74*var164))+((var72*var163)-(var68*var166)))))+(var92*(var3*((var93*var163)+(var94*var165))))))
+	output = output.at[4,13].set( ((var3*(((var70*var163)-(var68*var164))-((var72*var165)-(var74*var166))))/var95))
+	output = output.at[5,13].set( ((var99*(var3*(((var74*var163)+(var68*var165))-((var72*var164)+(var70*var166)))))+(var100*(var3*((var102*var163)-(var101*var166))))))
+	output = output.at[0,14].set( (var51*(((var70*var169)-(var68*var170))+((var72*var171)-(var74*var172)))))
+	output = output.at[1,14].set( (var51*(((var68*var171)+(var74*var169))+((var72*var170)+(var70*var172)))))
+	output = output.at[2,14].set( (var83*((var3*(var86*var172))-(var3*(var87*var169)))))
+	output = output.at[3,14].set( ((var91*(var3*(((var70*var171)-(var74*var170))+((var72*var169)-(var68*var172)))))+(var92*(var3*((var93*var169)+(var94*var171))))))
+	output = output.at[4,14].set( ((var3*(((var70*var169)-(var68*var170))-((var72*var171)-(var74*var172))))/var95))
+	output = output.at[5,14].set( ((var99*(var3*(((var74*var169)+(var68*var171))-((var72*var170)+(var70*var172)))))+(var100*(var3*((var102*var169)-(var101*var172))))))
 	return output
