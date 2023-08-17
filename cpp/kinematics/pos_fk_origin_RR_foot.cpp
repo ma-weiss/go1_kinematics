@@ -2,7 +2,7 @@
  * Automatically Generated from CasADI.
  * 2023-08-17 12:25:55
  */
-#include "pos_ypr_fk_origin_FR_foot.h"
+#include "pos_fk_origin_RR_foot.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,13 +48,13 @@ INLINE double casadi_sq(double x) { return pow(x, 2); }
 // #define Degree 0.01745329251994329576924
 
 /*
- * Sub functions pos_ypr_fk_origin_FR_foot:(i0[18])->(o0[6])
+ * Sub functions pos_fk_origin_RR_foot:(i0[18])->(o0[3])
  */
-static void output1(Eigen::Matrix<double,6, 1> &p_output0, const Eigen::Matrix<double,18, 1> &var0) { 
+static void output1(Eigen::Matrix<double,3, 1> &p_output0, const Eigen::Matrix<double,18, 1> &var0) { 
 
   double a0, a1, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a2, a20, a21, a22, a23, a24, a25, a26, a3, a4, a5, a6, a7, a8, a9;
   a0=var0(0) ;
-  a1=1.8809999999999999e-01;
+  a1=-1.8809999999999999e-01;
   a2=1.;
   a3=2.;
   a4=var0(3) ;
@@ -103,7 +103,7 @@ static void output1(Eigen::Matrix<double,6, 1> &p_output0, const Eigen::Matrix<d
   a1=(a1+a7);
   a0=(a0+a1);
   a1=-1.6000000000000000e-01;
-  a7=var0(6) ;
+  a7=var0(12) ;
   a4=(a7/a3);
   a4=cos(a4);
   a9=(a11*a4);
@@ -126,7 +126,7 @@ static void output1(Eigen::Matrix<double,6, 1> &p_output0, const Eigen::Matrix<d
   a8=(a1*a8);
   a0=(a0+a8);
   a8=-4.2599999999999999e-01;
-  a7=var0(7) ;
+  a7=var0(13) ;
   a15=(a7/a3);
   a15=cos(a15);
   a16=(a14*a15);
@@ -148,7 +148,7 @@ static void output1(Eigen::Matrix<double,6, 1> &p_output0, const Eigen::Matrix<d
   a18=(a18+a7);
   a18=(a8*a18);
   a0=(a0+a18);
-  a18=var0(8) ;
+  a18=var0(14) ;
   a7=(a18/a3);
   a7=cos(a7);
   a20=(a16*a7);
@@ -172,7 +172,7 @@ static void output1(Eigen::Matrix<double,6, 1> &p_output0, const Eigen::Matrix<d
   a0=(a0+a22);
   p_output0(0)=a0;
   a0=var0(1) ;
-  a22=3.7619999999999998e-01;
+  a22=-3.7619999999999998e-01;
   a18=(a5*a12);
   a24=(a11*a6);
   a18=(a18+a24);
@@ -201,16 +201,16 @@ static void output1(Eigen::Matrix<double,6, 1> &p_output0, const Eigen::Matrix<d
   a19=(a19-a16);
   a19=(a8*a19);
   a0=(a0+a19);
-  a19=(a23*a21);
-  a16=(a20*a7);
-  a19=(a19-a16);
-  a8=(a8*a19);
+  a23=(a23*a21);
+  a20=(a20*a7);
+  a23=(a23-a20);
+  a8=(a8*a23);
   a0=(a0+a8);
   p_output0(1)=a0;
   a0=var0(2) ;
   a8=(a12*a6);
-  a19=(a5*a11);
-  a8=(a8-a19);
+  a23=(a5*a11);
+  a8=(a8-a23);
   a22=(a22*a8);
   a5=(a5*a6);
   a12=(a12*a11);
@@ -232,47 +232,19 @@ static void output1(Eigen::Matrix<double,6, 1> &p_output0, const Eigen::Matrix<d
   a15=(a15-a17);
   a15=(a1*a15);
   a0=(a0+a15);
-  a15=casadi_sq(a7);
-  a15=(a3*a15);
-  a15=(a2-a15);
-  a17=casadi_sq(a21);
-  a17=(a3*a17);
-  a15=(a15-a17);
-  a1=(a1*a15);
+  a7=casadi_sq(a7);
+  a7=(a3*a7);
+  a2=(a2-a7);
+  a21=casadi_sq(a21);
+  a3=(a3*a21);
+  a2=(a2-a3);
+  a1=(a1*a2);
   a0=(a0+a1);
   p_output0(2)=a0;
-  a0=(a20*a23);
-  a1=(a7*a21);
-  a0=(a0+a1);
-  a0=(a3*a0);
-  a1=casadi_sq(a21);
-  a15=casadi_sq(a23);
-  a1=(a1+a15);
-  a1=(a3*a1);
-  a1=(a2-a1);
-  a0=atan2(a0,a1);
-  p_output0(3)=a0;
-  a0=(a20*a21);
-  a1=(a23*a7);
-  a0=(a0-a1);
-  a0=(a3*a0);
-  a0=asin(a0);
-  p_output0(4)=a0;
-  a20=(a20*a7);
-  a23=(a21*a23);
-  a20=(a20+a23);
-  a20=(a3*a20);
-  a7=casadi_sq(a7);
-  a21=casadi_sq(a21);
-  a7=(a7+a21);
-  a3=(a3*a7);
-  a2=(a2-a3);
-  a20=atan2(a20,a2);
-  p_output0(5)=a20;
   
 }
 
-void pos_ypr_fk_origin_FR_foot (Eigen::Matrix<double,6, 1> &p_output0, const Eigen::Matrix<double,18, 1> &var0) {
+void pos_fk_origin_RR_foot (Eigen::Matrix<double,3, 1> &p_output0, const Eigen::Matrix<double,18, 1> &var0) {
    /* Call Subroutines */
    output1(p_output0, var0);
 }

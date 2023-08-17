@@ -2,7 +2,7 @@
  * Automatically Generated from CasADI.
  * 2023-08-17 12:25:55
  */
-#include "pos_ypr_fk_trunk_FL_foot.h"
+#include "pos_fk_trunk_FL_foot.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,9 +48,9 @@ INLINE double casadi_sq(double x) { return pow(x, 2); }
 // #define Degree 0.01745329251994329576924
 
 /*
- * Sub functions pos_ypr_fk_trunk_FL_foot:(i0[18])->(o0[6])
+ * Sub functions pos_fk_trunk_FL_foot:(i0[18])->(o0[3])
  */
-static void output1(Eigen::Matrix<double,6, 1> &p_output0, const Eigen::Matrix<double,18, 1> &var0) { 
+static void output1(Eigen::Matrix<double,3, 1> &p_output0, const Eigen::Matrix<double,18, 1> &var0) { 
 
   double a0, a1, a10, a11, a12, a13, a14, a15, a2, a3, a4, a5, a6, a7, a8, a9;
   a0=1.8809999999999999e-01;
@@ -111,10 +111,10 @@ static void output1(Eigen::Matrix<double,6, 1> &p_output0, const Eigen::Matrix<d
   a5=(a5-a7);
   a5=(a1*a5);
   a0=(a0+a5);
-  a5=(a14*a12);
-  a7=(a11*a10);
-  a5=(a5-a7);
-  a1=(a1*a5);
+  a14=(a14*a12);
+  a11=(a11*a10);
+  a14=(a14-a11);
+  a1=(a1*a14);
   a0=(a0+a1);
   p_output0(1)=a0;
   a0=1.6000000000000000e-01;
@@ -129,47 +129,19 @@ static void output1(Eigen::Matrix<double,6, 1> &p_output0, const Eigen::Matrix<d
   a6=(a6-a8);
   a6=(a4*a6);
   a0=(a0+a6);
-  a6=casadi_sq(a10);
-  a6=(a3*a6);
-  a6=(a9-a6);
-  a8=casadi_sq(a12);
-  a8=(a3*a8);
-  a6=(a6-a8);
-  a4=(a4*a6);
+  a10=casadi_sq(a10);
+  a10=(a3*a10);
+  a9=(a9-a10);
+  a12=casadi_sq(a12);
+  a3=(a3*a12);
+  a9=(a9-a3);
+  a4=(a4*a9);
   a0=(a0+a4);
   p_output0(2)=a0;
-  a0=(a11*a14);
-  a4=(a10*a12);
-  a0=(a0+a4);
-  a0=(a3*a0);
-  a4=casadi_sq(a12);
-  a6=casadi_sq(a14);
-  a4=(a4+a6);
-  a4=(a3*a4);
-  a4=(a9-a4);
-  a0=atan2(a0,a4);
-  p_output0(3)=a0;
-  a0=(a11*a12);
-  a4=(a14*a10);
-  a0=(a0-a4);
-  a0=(a3*a0);
-  a0=asin(a0);
-  p_output0(4)=a0;
-  a11=(a11*a10);
-  a14=(a12*a14);
-  a11=(a11+a14);
-  a11=(a3*a11);
-  a10=casadi_sq(a10);
-  a12=casadi_sq(a12);
-  a10=(a10+a12);
-  a3=(a3*a10);
-  a9=(a9-a3);
-  a11=atan2(a11,a9);
-  p_output0(5)=a11;
   
 }
 
-void pos_ypr_fk_trunk_FL_foot (Eigen::Matrix<double,6, 1> &p_output0, const Eigen::Matrix<double,18, 1> &var0) {
+void pos_fk_trunk_FL_foot (Eigen::Matrix<double,3, 1> &p_output0, const Eigen::Matrix<double,18, 1> &var0) {
    /* Call Subroutines */
    output1(p_output0, var0);
 }
