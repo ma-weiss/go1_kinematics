@@ -2,3 +2,7 @@
 jax/.DS_Store
 
 jax/kinematics/.DS_Store
+
+.vscode/
+
+__pycache__/
